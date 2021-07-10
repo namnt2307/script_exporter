@@ -44,10 +44,10 @@ func main() {
 func metricScrape(configDir string) {
 	yml := Yml{}
 	yamlFile, err := ioutil.ReadFile(configDir)
-	HandlError("Read yml file error ->", err)
+	handlError("Read yml file error ->", err)
 
 	e := yaml.Unmarshal(yamlFile, &yml)
-	HandlError("Unmarshal error ->", e)
+	handlError("Unmarshal error ->", e)
 	for {
 		for _, name := range yml.ScriptList {
 			metricHandler(name.Name, name.Dir, name.Executor)
@@ -68,7 +68,7 @@ func metricHandler(scriptName, scriptDir, scriptExecutor string) {
 	}
 }
 
-func HandlError(message string, err error) {
+func handlError(message string, err error) {
 	if err != nil {
 		log.Fatal(message, err)
 	}
