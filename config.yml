@@ -1,0 +1,7 @@
+scripts:
+  - name: main.py
+    dir: ./main.py
+    executor: /usr/bin/python3
+  - name: a.sh
+    dir: ./a.sh
+    executor: /bin/bash
